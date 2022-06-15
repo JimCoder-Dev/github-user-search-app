@@ -1,6 +1,6 @@
 function SearchBar() {
   return (
-    <div className="container flex justify-center">
+    <div className="container flex justify-center mb-4">
       <div class="form-control ">
         <div class="input-group">
           <svg
