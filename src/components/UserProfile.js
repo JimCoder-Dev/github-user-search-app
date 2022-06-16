@@ -1,50 +1,50 @@
-import OctoCat from '../assets/octocat.png';
-import { useEffect, useState } from 'react';
+import React from 'react';
 
-function SearchResults() {
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const fetchUser = async () => {
-    const response = await fetch('https://api.github.com/users/mojombo');
-
-    const data = await response.json();
-    console.log(data);
-    setUser(data);
-  };
+function UserProfile({
+  user: {
+    avatar_url,
+    name,
+    login,
+    bio,
+    public_repos,
+    followers,
+    following,
+    location,
+    twitter_username,
+    html_url,
+    company,
+  },
+}) {
   return (
     <div className="bg-white rounded-lg py-10 max-w-5xl mx-auto">
       <div className="grid gap-4 grid-cols-6">
         <div className="p-4 col-start-1 col-span-2">
           <img
             className="rounded-full"
-            src={OctoCat}
+            src={avatar_url}
             alt="Users profile phot"
           />
         </div>
         <div className="col-start-3 col-span-3">
           <div className="flex justify-between">
-            <h2 className="text-3xl">{user.name}</h2>
+            <h2 className="text-3xl">{name}</h2>
             <p></p>
           </div>
-          <p className="text-primaryBlue">@{user.login}</p>
-          <p></p>
+          <p className="text-primaryBlue">@{login}</p>
+          <p>{bio}</p>
 
-          <div className="flex justify-between bg-veryLightGrayLM rounded-lg p-8">
+          <div className="flex justify-between bg-veryLightGrayLM rounded-lg p-8 text-center">
             <div className="flex flex-col">
               <p>Repos</p>
-              <p className="font-bold"></p>
+              <p className="font-bold">{public_repos}</p>
             </div>
             <div className="flex flex-col">
               <p>Followers</p>
-              <p className="font-bold"></p>
+              <p className="font-bold">{followers}</p>
             </div>
             <div className="flex flex-col">
               <p>Following</p>
-              <p className="font-bold"></p>
+              <p className="font-bold">{following}</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ function SearchResults() {
                   fill="#4b6a9b"
                 />
               </svg>
-              <p>{user.location}</p>
+              <p>{location}</p>
             </div>
             <div className="flex">
               <svg height="18" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ function SearchResults() {
                   fill="#4b6a9b"
                 />
               </svg>
-              <p>{user.twitter_username}</p>
+              <p>{twitter_username}</p>
             </div>
             <div className="flex">
               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,7 @@ function SearchResults() {
                   <path d="M13.439 13.75a.401.401 0 00.006-.003c.659-1.204.788-2.586.48-3.933l-.002.002-.001-.001a5.434 5.434 0 00-2.19-3.124.3.3 0 00-.333.015c-.553.448-1.095 1.021-1.452 1.754a.243.243 0 00.096.317c.415.24.79.593 1.04 1.061h.001c.196.33.388.958.263 1.632-.116.894-1.019 1.714-1.736 2.453-.546.559-1.935 1.974-2.49 2.542a2.6 2.6 0 01-3.666.037 2.6 2.6 0 01-.038-3.666l1.521-1.564A.266.266 0 005 11.004c-.338-1.036-.43-2.432-.217-3.51.006-.03-.031-.049-.053-.027l-3.179 3.245c-2.083 2.126-2.066 5.588.04 7.693 2.125 2.083 5.57 2.048 7.653-.078.723-.81 3.821-3.678 4.195-4.577z" />
                 </g>
               </svg>
-              <a href={user.html_url}>{user.html_url}</a>
+              <a href={html_url}>{html_url}</a>
             </div>
             <div className="flex">
               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@ function SearchResults() {
                   <path d="M10.858 1.558L1.7.167A1.477 1.477 0 00.517.492 1.49 1.49 0 000 1.608v17.559c0 .458.375.833.833.833h2.709v-4.375c0-.808.65-1.458 1.458-1.458h2.083c.809 0 1.459.65 1.459 1.458V20h3.541V3a1.46 1.46 0 00-1.225-1.442zM4.583 12.292h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm4.167 7.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zM18.85 9.035l-5.933-1.242V20h5.625A1.46 1.46 0 0020 18.542V10.46c0-.688-.47-1.274-1.15-1.425zM16.875 17.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25z" />
                 </g>
               </svg>
-              <p>{user.company}</p>
+              <p>{company}</p>
             </div>
           </div>
         </div>
@@ -91,4 +91,4 @@ function SearchResults() {
   );
 }
 
-export default SearchResults;
+export default UserProfile;
