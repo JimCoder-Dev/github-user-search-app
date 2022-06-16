@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         primaryBlue: 'hsl(221, 100%, 50%)',
+        hoverBlue: '#60ABFF',
         darkGray: 'hsl(217, 20%, 51%)',
         grayishBlue: 'hsl(217, 35%, 45%)',
         blackLightM: 'hsl(217, 21%, 21%)',

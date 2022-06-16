@@ -6,7 +6,7 @@ import { GithubProvider } from './context/GithubContext';
 function App() {
   return (
     <GithubProvider>
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-3xl">
         <Navbar />
         <SearchBar />
         <SearchResults />

@@ -8,3 +8,7 @@ body {
   background: #f6f8ff;
   height: 100vh;
 }
+
+input {
+  font-family: inherit !important;
+}

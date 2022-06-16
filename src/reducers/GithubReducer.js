@@ -1,5 +1,3 @@
-import GithubContext from '../context/GithubContext';
-
 const githubReducer = (state, action) => {
   switch (action.type) {
     case 'GET_USER':
@@ -7,7 +5,6 @@ const githubReducer = (state, action) => {
         ...state,
         user: action.payload,
       };
-
     default:
       return state;
   }

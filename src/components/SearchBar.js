@@ -1,10 +1,9 @@
 import { useState, useContext } from 'react';
 import GithubContext from '../context/GithubContext';
-import UserProfile from './UserProfile';
 
 function SearchBar() {
   const [searchText, setSearchText] = useState('');
-  const { user, fetchUser } = useContext(GithubContext);
+  const { fetchUser } = useContext(GithubContext);
   function handleChange(e) {
     setSearchText(e.target.value);
     console.log(e.target.value);
@@ -26,7 +25,7 @@ function SearchBar() {
         <div className="form-control ">
           <div class="relative input-group">
             <svg
-              class="h-12 w-12 left-0 pr-2 "
+              class="h-12 w-12 absolute ml-2 px-3 pr-2 "
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -39,17 +38,24 @@ function SearchBar() {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-
-            <input
-              className="w-full pr-40 input input-bordered"
-              type="text"
-              placeholder="Search…"
-              value={searchText}
-              onChange={handleChange}
-            />
-            <button type="submit" className="btn px-12 bg-primaryBlue">
-              Search
-            </button>
+            <label className="input-group">
+              <input
+                className="w-full pl-16  input input-bordered rounded-lg"
+                type="text"
+                placeholder="Search GitHub username..."
+                value={searchText}
+                onChange={handleChange}
+              />
+              <div className="hidden text-red-500 absolute right-44 pt-3 font-semibold">
+                No results
+              </div>
+              <button
+                type="submit"
+                className="btn px-12 bg-primaryBlue hover:bg-hoverBlue"
+              >
+                Search
+              </button>
+            </label>
           </div>
         </div>
       </form>
