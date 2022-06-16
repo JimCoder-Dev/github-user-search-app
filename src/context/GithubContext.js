@@ -1,23 +1,32 @@
-import { useState, createContext } from 'react';
+import { createContext, useReducer } from 'react';
+import githubReducer from '../reducers/GithubReducer';
 
 const GithubContext = createContext();
-const URL = 'https://api.github.com/users/octocat';
 
 export const GithubProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
+  //const [user, setUser] = useState([]);
 
-  const fetchUser = async () => {
+  const contextState = {
+    user: [],
+  };
+  const [state, dispatch] = useReducer(githubReducer, contextState);
+
+  const fetchUser = async (userName) => {
+    const URL = `https://api.github.com/users/${userName}`;
     const response = await fetch(URL);
 
     const data = await response.json();
     console.log(data);
-    setUser(data);
+    dispatch({
+      type: 'GET_USER',
+      payload: data,
+    });
   };
 
   return (
     <GithubContext.Provider
       value={{
-        user,
+        user: state.user,
         fetchUser,
       }}
     >
