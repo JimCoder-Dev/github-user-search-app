@@ -1,11 +1,11 @@
-import { createContext, useReducer } from 'react';
+import { useState, createContext, useReducer } from 'react';
 import githubReducer from '../reducers/GithubReducer';
 
 const GithubContext = createContext();
 
 export const GithubProvider = ({ children }) => {
   //const [user, setUser] = useState([]);
-
+  const [mode, setMode] = useState(true);
   const contextState = {
     user: [],
   };
@@ -28,6 +28,8 @@ export const GithubProvider = ({ children }) => {
       value={{
         user: state.user,
         fetchUser,
+        mode,
+        setMode,
       }}
     >
       {children}

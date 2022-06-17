@@ -25,7 +25,7 @@ function SearchBar() {
         <div className="form-control ">
           <div class="relative input-group">
             <svg
-              class="h-12 w-12 absolute ml-2 px-3 pr-2 "
+              class="h-12 w-12 absolute ml-2 px-3 pr-2 blue-filter"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ function SearchBar() {
             </svg>
             <label className="input-group">
               <input
-                className="w-full pl-16  input input-bordered rounded-lg"
+                className="bg-white font-xl w-full pl-16  input input-bordered rounded-lg"
                 type="text"
                 placeholder="Search GitHub username..."
                 value={searchText}
@@ -51,7 +51,7 @@ function SearchBar() {
               </div>
               <button
                 type="submit"
-                className="btn px-12 bg-primaryBlue hover:bg-hoverBlue"
+                className="btn text-white px-12 bg-primaryBlue hover:bg-hoverBlue"
               >
                 Search
               </button>

@@ -4,11 +4,31 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
 
-body {
-  background: #f6f8ff;
+body,
+.main-container {
   height: 100vh;
 }
 
 input {
   font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+.white-icon {
+  filter: brightness(0) invert(1);
+}
+
+.greyout-white-filter {
+  filter: invert(96%) sepia(0%) saturate(2531%) hue-rotate(158deg)
+    brightness(78%) contrast(98%);
+}
+
+.blue-filter {
+  filter: invert(39%) sepia(72%) saturate(5731%) hue-rotate(202deg)
+    brightness(104%) contrast(101%);
+}
+
+.black-filter {
+  filter: invert(10%) sepia(10%) saturate(1652%) hue-rotate(181deg)
+    brightness(94%) contrast(87%);
 }
