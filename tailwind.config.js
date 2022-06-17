@@ -14,7 +14,7 @@ module.exports = {
         hoverBlue: '#60ABFF',
         darkGray: 'hsl(217, 20%, 51%)',
         grayishBlue: 'hsl(217, 35%, 45%)',
-        grayishBlueFade: 'rgba(75, 106, 156, 0.75)',
+        grayishBlueFade: 'rgba(75, 106, 156, 0.5)',
         whiteFade: 'rgba(255, 255, 255, 0.75)',
         blackLightM: 'hsl(217, 21%, 21%)',
         blackDarkM: 'hsl(220, 40%, 13%)',

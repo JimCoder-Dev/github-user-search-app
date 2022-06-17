@@ -46,12 +46,19 @@ function UserProfile({
             alt="Users profile phot"
           />
         </div>
+
         <div className="col-start-2 col-span-5 pr-8 space-y-2">
           <div className="flex justify-between">
-            <h2 className="bold-black-font text-3xl font-semibold">{name}</h2>
+            <h2
+              className={`${
+                mode ? 'text-fontBlack' : 'text-white'
+              } text-3xl font-semibold`}
+            >
+              {name}
+            </h2>
             <p>Joined {getFormattedDate(created_at)}</p>
           </div>
-          <p className="font-lg text-primaryBlue">@{login}</p>
+          <p className="text-xl text-primaryBlue">@{login}</p>
           <p
             className={`${
               bio === null ? 'text-grayishBlueFade' : ''
@@ -67,21 +74,37 @@ function UserProfile({
           >
             <div className="flex flex-col">
               <p>Repos</p>
-              <p className="bold-black-font font-bold text-2xl">
+              <p
+                className={`${
+                  mode ? 'text-fontBlack' : 'text-white'
+                } font-bold text-2xl`}
+              >
                 {public_repos}
               </p>
             </div>
             <div className="flex flex-col">
               <p>Followers</p>
-              <p className="bold-black-font font-bold text-2xl">{followers}</p>
+              <p
+                className={`${
+                  mode ? 'text-fontBlack' : 'text-white'
+                } font-bold text-2xl`}
+              >
+                {followers}
+              </p>
             </div>
             <div className="flex flex-col">
               <p>Following</p>
-              <p className="bold-black-font font-bold text-2xl">{following}</p>
+              <p
+                className={`${
+                  mode ? 'text-fontBlack' : 'text-white'
+                } font-bold text-2xl`}
+              >
+                {following}
+              </p>
             </div>
           </div>
 
-          <div className="grid gap-4 mt-4">
+          <div className="grid gap-4 pt-8 lg:grid-cols-2">
             <div className="flex">
               <img
                 className={`${mode ? '' : 'white-icon'} mr-2`}
@@ -96,7 +119,7 @@ function UserProfile({
                 src={TwitterIcon}
                 alt="twitter logo"
               />
-              <p>
+              <p className="text-grayishBlueFade">
                 {twitter_username === null ? 'Not Avaiable' : twitter_username}
               </p>
             </div>
@@ -111,7 +134,7 @@ function UserProfile({
                 {html_url}
               </a>
             </div>
-            <div>
+            <div className="flex">
               <img
                 className={`${mode ? '' : 'white-icon'} mr-2`}
                 src={CompanyIcon}

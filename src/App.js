@@ -1,10 +1,13 @@
 import Main from './components/Main';
 import { GithubProvider } from './context/GithubContext';
+import { AlertProvider } from './context/AlertContext';
 
 function App() {
   return (
     <GithubProvider>
-      <Main />
+      <AlertProvider>
+        <Main />
+      </AlertProvider>
     </GithubProvider>
   );
 }

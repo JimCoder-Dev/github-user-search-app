@@ -7,9 +7,7 @@ function SearchResult() {
 
   console.log(user);
   if (user.message === 'Not Found') {
-    return (
-      <h1 className="text-red-500 text-center text-5xl">USER NOT FOUND!!!</h1>
-    );
+    console.log('ERRO');
   } else if (user.length === 0) {
     return (
       <h1 className="text-center text-4xl">Search for a user on Github</h1>

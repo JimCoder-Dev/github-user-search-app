@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react';
 import GithubContext from '../context/GithubContext';
-
+import AlertContext from '../context/AlertContext';
+import Alert from './Alert';
 function SearchBar() {
   const [searchText, setSearchText] = useState('');
-  const { fetchUser } = useContext(GithubContext);
+  const { mode, fetchUser } = useContext(GithubContext);
+  const { setAlert } = useContext(AlertContext);
   function handleChange(e) {
     setSearchText(e.target.value);
     console.log(e.target.value);
@@ -11,7 +13,7 @@ function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     if (searchText === '') {
-      alert('SEARCH CANNOT BE EMPTY');
+      setAlert('Please enter something', 'error');
     } else {
       //SORT SEARCH
 
@@ -40,15 +42,15 @@ function SearchBar() {
             </svg>
             <label className="input-group">
               <input
-                className="bg-white font-xl w-full pl-16  input input-bordered rounded-lg"
+                className={`${
+                  mode ? 'bg-white ' : 'bg-navyDarkMode text-white'
+                }font-xl w-full pl-16  input input-bordered rounded-lg `}
                 type="text"
                 placeholder="Search GitHub username..."
                 value={searchText}
                 onChange={handleChange}
               />
-              <div className="hidden text-red-500 absolute right-44 pt-3 font-semibold">
-                No results
-              </div>
+              <Alert />
               <button
                 type="submit"
                 className="btn text-white px-12 bg-primaryBlue hover:bg-hoverBlue"
