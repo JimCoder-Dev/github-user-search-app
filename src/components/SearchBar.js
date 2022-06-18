@@ -13,7 +13,7 @@ function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     if (searchText === '') {
-      setAlert('Please enter something', 'error');
+      setAlert('Enter a username', 'error');
     } else {
       //SORT SEARCH
 

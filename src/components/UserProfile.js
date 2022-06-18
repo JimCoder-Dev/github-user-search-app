@@ -23,10 +23,6 @@ function UserProfile({
   },
 }) {
   const { mode } = useContext(GithubContext);
-  // function formatDate(created_at) {
-  //   let date = new Date();
-  //   return date.toLocaleDateString('en-US');
-  // }
 
   const getFormattedDate = (dateStr) => {
     const date = new Date(dateStr);

@@ -7,7 +7,7 @@ function Alert() {
   return (
     alert !== null && (
       <div className=" text-red-500 absolute right-44 pt-3 font-semibold">
-        No results
+        {alert.msg}
       </div>
     )
   );
