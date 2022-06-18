@@ -48,7 +48,7 @@ function UserProfile({
         </div>
 
         <div className="col-start-2 col-span-5 pr-8 space-y-2">
-          <div className="flex justify-between">
+          <div className="flex flex-col lg:flex-row lg:justify-between">
             <h2
               className={`${
                 mode ? 'text-fontBlack' : 'text-white'
@@ -56,9 +56,12 @@ function UserProfile({
             >
               {name}
             </h2>
-            <p>Joined {getFormattedDate(created_at)}</p>
+            <p className="order-last">Joined {getFormattedDate(created_at)}</p>
+            <p className="lg:hidden text-xl text-primaryBlue">@{login}</p>
           </div>
-          <p className="text-xl text-primaryBlue">@{login}</p>
+          <p className="sm:hidden md:hidden lg:block text-xl text-primaryBlue">
+            @{login}
+          </p>
           <p
             className={`${
               bio === null ? 'text-grayishBlueFade' : ''
@@ -115,11 +118,13 @@ function UserProfile({
             </div>
             <div className="flex">
               <img
-                className={`${mode ? '' : 'white-icon'} mr-2`}
+                className={`${mode ? '' : 'white-icon'}${
+                  twitter_username === null ? 'greyout-white-filter' : ''
+                } mr-2`}
                 src={TwitterIcon}
                 alt="twitter logo"
               />
-              <p className="text-grayishBlueFade">
+              <p className="">
                 {twitter_username === null ? 'Not Avaiable' : twitter_username}
               </p>
             </div>
