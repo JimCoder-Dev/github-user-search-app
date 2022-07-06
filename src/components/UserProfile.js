@@ -28,6 +28,9 @@ function UserProfile({
     const date = new Date(dateStr);
     return date.toLocaleDateString();
   };
+
+  const iconStyles = mode ? '' : 'white-icon'
+  
   return (
     <div
       className={`${
@@ -120,7 +123,11 @@ function UserProfile({
                 src={TwitterIcon}
                 alt="twitter logo"
               />
-              <p className="">
+              <p
+                className={`${
+                  twitter_username === null ? 'text-gray-500' : 'text-white'
+                }`}
+              >
                 {twitter_username === null ? 'Not Avaiable' : twitter_username}
               </p>
             </div>
